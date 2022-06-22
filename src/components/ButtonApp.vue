@@ -6,7 +6,7 @@
   </button>
 </template>
 
-<style lang="pcss">
+<style lang="postcss">
 .btn {
   display: inline-block;
   height: 48px;

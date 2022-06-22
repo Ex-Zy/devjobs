@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted } from "vue";
+import HeaderApp from "./components/HeaderApp.vue";
 
 onMounted(() => {
   document.documentElement.setAttribute("data-theme", "light");
@@ -7,15 +8,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>First app</h1>
-  <div>
-    <router-link to="/">Go to Home</router-link> &nbsp;
-    <router-link to="/jobs">Go to Jobs</router-link>
-  </div>
+  <HeaderApp />
   <router-view></router-view>
 </template>
 
-<style lang="pcss">
+<style lang="postcss">
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-color: var(--page-bg);
   color: var(--text-color);
