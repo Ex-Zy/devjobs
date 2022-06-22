@@ -15,14 +15,9 @@ onMounted(() => {
   <router-view></router-view>
 </template>
 
-<style>
-@import url("../node_modules/normalize.css");
-@import url("./styles/basic/reset.local.css");
-@import url("./styles/basic/colors.css");
-@import url("./styles/basic/typography.css");
-
+<style lang="pcss">
 body {
-  background-color: var(--bg-primary);
+  background-color: var(--page-bg);
   color: var(--text-color);
 }
 </style>

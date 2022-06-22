@@ -1,4 +1,4 @@
 <template>
   <h1>Home page</h1>
-  <ButtonApp></ButtonApp>
+  <ButtonApp class="btn-primary"></ButtonApp>
 </template>
