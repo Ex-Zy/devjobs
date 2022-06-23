@@ -1,13 +1,12 @@
 <script setup>
 import LogoSvg from "../assets/logos/logo.svg";
-import SwitchApp from "./SwitchApp.vue";
 </script>
 
 <template>
   <header class="app-header">
     <div class="app-header__in">
       <LogoSvg />
-      <SwitchApp />
+      <SwitchEl />
     </div>
   </header>
 </template>
