@@ -1,20 +1,34 @@
-<script setup></script>
+<script setup>
+import { defineProps } from "vue";
+defineProps({
+  type: {
+    type: String,
+    default: "primary",
+    validator: (val) => ["primary", "secondary"].includes(val),
+  },
+  title: { type: String, default: "Default" },
+});
+</script>
 
 <template>
-  <button type="button" class="btn">
-    <slot>Default</slot>
+  <button type="button" class="btn" :class="`btn-${type}`">
+    <slot>{{ title }}</slot>
   </button>
 </template>
 
 <style lang="postcss">
 .btn {
+  --padding: 30px;
+  --color: #fff;
+  --height: 48px;
+
   display: inline-block;
-  height: 48px;
+  height: var(--height);
   position: relative;
   text-align: center;
-  padding: 5px 30px;
-  color: #fff;
-  border-radius: 5px;
+  padding: 0 var(--padding);
+  color: var(--color);
+  border-radius: var(--radius);
   font: 700 16rem/1.2 "Kumbh Sans", sans-serif;
   cursor: pointer;
   transition: background-color 0.25s;

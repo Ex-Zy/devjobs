@@ -22,7 +22,7 @@ const value = ref(false);
   --background-active: var(--button-bg1);
   --text-color: var(--title-primary-color);
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 16px;
 
@@ -46,7 +46,7 @@ const value = ref(false);
     transition: background-color 0.25s;
 
     &:checked {
-      background-color: #5964e0;
+      background-color: var(--background-active);
     }
   }
 

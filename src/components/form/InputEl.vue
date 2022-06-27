@@ -46,16 +46,18 @@ const { uiClasses, focus, blur, mouseover, mouseleave } = useInputUIState();
 
   --gap: 16px;
   --radius: 6px;
-  --height: 80px;
+  --height: var(--filter-height);
+  --border-width: 1px;
 
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: var(--gap);
   padding: 0 15px 0 30px;
   height: var(--height);
 
   background: var(--bg-color);
   border-radius: var(--radius);
-  border: 2px solid transparent;
+  border: var(--border-width) solid transparent;
 
   &__field {
     background-color: transparent;

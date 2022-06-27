@@ -13,6 +13,11 @@ onMounted(() => {
 </template>
 
 <style lang="postcss">
+:root {
+  --filter-height: 80px;
+  --radius: 6px;
+}
+
 html,
 body {
   height: 100%;

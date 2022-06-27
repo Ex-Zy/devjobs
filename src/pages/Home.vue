@@ -1,6 +1,10 @@
+<script setup>
+import FilterAppVue from "../components/FilterApp.vue";
+</script>
+
 <template>
-  <h1>Home page</h1>
-  <ButtonEl class="btn-primary"></ButtonEl>
-  <CheckboxEl />
-  <InputEl />
+  <FilterAppVue />
 </template>
+
+<style lang="postcss">
+</style>
