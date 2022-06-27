@@ -1,7 +1,8 @@
 <script setup>
-import { ref, defineProps, computed, reactive } from "vue";
+import { ref, defineProps, computed } from "vue";
 import IconSearch from "../../assets/icons/icon-search.svg";
 import IconLocation from "../../assets/icons/icon-location.svg";
+import useInputUIState from "../../use/useInputUIState";
 
 const props = defineProps({
   value: String,
@@ -16,22 +17,11 @@ const icons = {
 };
 const icon = computed(() => icons[props.iconName] || null);
 
-const state = reactive({
-  isHovered: false,
-  isFocused: false,
-});
-const focus = () => (state.isFocused = true);
-const blur = () => (state.isFocused = false);
-const mouseover = () => (state.isHovered = true);
-const mouseleave = () => (state.isHovered = false);
-const rootClasses = computed(() => ({
-  "is-focused": state.isFocused,
-  "is-hovered": state.isHovered && !state.isFocused,
-}));
+const { uiClasses, focus, blur, mouseover, mouseleave } = useInputUIState();
 </script>
 
 <template>
-  <div class="gui-input" :class="rootClasses" v-on="{ mouseover, mouseleave }">
+  <div class="gui-input" :class="uiClasses" v-on="{ mouseover, mouseleave }">
     <Component
       v-if="icon"
       :is="icon"
@@ -49,32 +39,48 @@ const rootClasses = computed(() => ({
 
 <style lang="postcss">
 .gui-input {
-  display: inline-flex;
-  gap: 16px;
-  padding: 0 15px 0 30px;
-  height: 80px;
+  --bg-color: var(--card-bg);
+  --placeholder: var(--text-color);
+  --color: var(--title-primary-color);
+  --border-color: var(--button-bg1-hover);
 
-  background: #fff;
-  border-radius: 6px;
+  --gap: 16px;
+  --radius: 6px;
+  --height: 80px;
+
+  display: inline-flex;
+  gap: var(--gap);
+  padding: 0 15px 0 30px;
+  height: var(--height);
+
+  background: var(--bg-color);
+  border-radius: var(--radius);
   border: 2px solid transparent;
 
   &__field {
-    color: #19202d;
+    background-color: transparent;
+    color: var(--color);
     font: 400 16rem/1.4 "Kumbh Sans", sans-serif;
-    /* border: 0; */
-    /* outline: none; */
+    border: 0;
+    outline: none;
+    transition: all 0.25s;
+    &::placeholder {
+      color: var(--placeholder);
+    }
   }
 
   &__icon {
     align-self: center;
     cursor: pointer;
+    outline: none;
+    border: none;
   }
 
   &.is-focused {
-    border-color: blue;
+    border-color: var(--button-bg1-hover);
   }
   &.is-hovered {
-    border-color: black;
+    border-color: var(--button-bg2-hover);
   }
 }
 </style>

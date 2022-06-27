@@ -3,7 +3,7 @@ import { onMounted } from "vue";
 import HeaderApp from "./components/HeaderApp.vue";
 
 onMounted(() => {
-  document.documentElement.setAttribute("data-theme", "light");
+  document.documentElement.setAttribute("data-theme", "dark");
 });
 </script>
 
