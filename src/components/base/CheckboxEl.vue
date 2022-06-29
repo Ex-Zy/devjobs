@@ -1,17 +1,17 @@
 <script setup>
-import { ref, defineProps } from "vue";
-
 defineProps({
-  title: { type: String, default: "Full Time Only" },
+  title: { type: String },
+  checked: { type: Boolean },
 });
 
-const value = ref(false);
+const emit = defineEmits(["update:checked"]);
+const change = (event) => emit("update:checked", event.target.checked);
 </script>
 
 <template>
   <label class="gui-checkbox">
-    <input type="checkbox" v-model="value" />
-    <span>{{ title }}</span>
+    <input type="checkbox" v-bind="{ checked }" v-on="{ change }" />
+    <span v-if="title">{{ title }}</span>
   </label>
 </template>
 

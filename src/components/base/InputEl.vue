@@ -1,8 +1,6 @@
 <script setup>
-import { ref, defineProps, computed } from "vue";
-import IconSearch from "../../assets/icons/icon-search.svg";
-import IconLocation from "../../assets/icons/icon-location.svg";
-import useInputUIState from "../../use/useInputUIState";
+import useInput from "../../use/useInput.js";
+import useIcon from "../../use/useIcon.js";
 
 const props = defineProps({
   value: String,
@@ -10,18 +8,14 @@ const props = defineProps({
   placeholder: { type: String, default: "Initial placeholder" },
   iconName: { type: String, default: "search" },
 });
-
-const icons = {
-  search: IconSearch,
-  location: IconLocation,
-};
-const icon = computed(() => icons[props.iconName] || null);
-
-const { uiClasses, focus, blur, mouseover, mouseleave } = useInputUIState();
+const emit = defineEmits(["update:value"]);
+const { icon } = useIcon(props.iconName);
+const { classes, focus, blur, mouseover, mouseleave } = useInput();
+const input = (event) => emit("update:value", event.target.value);
 </script>
 
 <template>
-  <div class="gui-input" :class="uiClasses" v-on="{ mouseover, mouseleave }">
+  <div class="gui-input" :class="classes" v-on="{ mouseover, mouseleave }">
     <Component
       v-if="icon"
       :is="icon"
@@ -29,10 +23,9 @@ const { uiClasses, focus, blur, mouseover, mouseleave } = useInputUIState();
       v-on="{ focus, blur }"
     />
     <input
-      ref="input"
       class="gui-input__field"
-      v-bind="{ type, placeholder }"
-      v-on="{ focus, blur }"
+      v-bind="{ value, type, placeholder }"
+      v-on="{ focus, blur, input }"
     />
   </div>
 </template>

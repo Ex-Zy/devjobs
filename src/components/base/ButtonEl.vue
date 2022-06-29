@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 defineProps({
   type: {
     type: String,
@@ -8,10 +7,12 @@ defineProps({
   },
   title: { type: String, default: "Default" },
 });
+const emit = defineEmits(["click"]);
+const click = () => emit("click");
 </script>
 
 <template>
-  <button type="button" class="btn" :class="`btn-${type}`">
+  <button type="button" class="btn" :class="`btn-${type}`" v-on="{ click }">
     <slot>{{ title }}</slot>
   </button>
 </template>

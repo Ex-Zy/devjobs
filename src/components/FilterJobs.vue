@@ -1,34 +1,47 @@
 <script setup>
-import CheckboxEl from "./form/CheckboxEl.vue";
-import ButtonEl from "./form/ButtonEl.vue";
+import { reactive } from "vue";
+import FilterModel from "../models/filter.model";
+import JobsService from "../services/jobs.service";
+
+const filter = reactive(new FilterModel());
+const getJobs = async () => {
+  const jobs = await JobsService.filter(filter);
+
+  console.log('Job => ', jobs, filter);
+};
 </script>
 
 <template>
   <div class="filter">
     <div class="filter__row">
       <InputEl
+        v-model:value="filter.keyWord"
         class="filter-radius"
         iconName="search"
         placeholder="Filter by title, companies, expertise…"
       />
       <div class="filter__divider"></div>
       <InputEl
+        v-model:value="filter.location"
         class="filter-radius"
         iconName="location"
         placeholder="Filter by location…"
       />
       <div class="filter__divider"></div>
       <div class="filter__fulltime">
-        <CheckboxEl title="Full Time Only" />
-        <ButtonEl title="Search" />
+        <CheckboxEl
+          v-model:checked="filter.isFulltime"
+          title="Full Time Only"
+        />
+        <ButtonEl title="Search" @click="getJobs" />
       </div>
     </div>
   </div>
 </template>
 
 <style lang="postcss">
-@import url("../styles/mixins.pcss");
-@import url("../styles/media.pcss");
+@import url("@styles/mixins.pcss");
+@import url("@styles/media.pcss");
 
 .filter {
   --divider: var(--text-color);

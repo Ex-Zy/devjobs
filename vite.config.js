@@ -1,24 +1,18 @@
-import { fileURLToPath, URL } from "url";
-
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import postcssNested from "postcss-nested";
-import postcssMixins from "postcss-mixins";
-import postcssCustomMedia from "postcss-custom-media";
-import svgLoader from "vite-svg-loader";
+import { alias } from "./vite/path.alias";
+import { plugins as postcssPlugins } from "./vite/postcss.plugins";
+import { plugins as vuePlugins } from "./vite/vue.plugins";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), svgLoader()],
+  plugins: vuePlugins,
   resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
+    alias,
   },
   css: {
     devSourcemap: true,
     postcss: {
-      plugins: [postcssCustomMedia, postcssMixins, postcssNested],
+      plugins: postcssPlugins,
     },
   },
 });

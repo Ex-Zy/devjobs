@@ -13,6 +13,11 @@ onMounted(() => {
 </template>
 
 <style lang="postcss">
+@import "@node_modules/normalize.css";
+@import "@styles/reset.local.pcss";
+@import "@styles/theme.pcss";
+@import "@styles/typography.pcss";
+
 :root {
   --filter-height: 80px;
   --radius: 6px;
