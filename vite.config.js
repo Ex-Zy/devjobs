@@ -1,11 +1,11 @@
 import { defineConfig } from "vite";
 import { alias } from "./vite/path.alias";
 import { plugins as postcssPlugins } from "./vite/postcss.plugins";
-import { plugins as vuePlugins } from "./vite/vue.plugins";
+import { plugins as vitePlugins } from "./vite/vite.plugins";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: vuePlugins,
+  plugins: vitePlugins,
   resolve: {
     alias,
   },

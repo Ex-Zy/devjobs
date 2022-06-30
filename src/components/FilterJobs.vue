@@ -15,14 +15,14 @@ const getJobs = async () => {
   <div class="filter">
     <div class="filter__row">
       <InputEl
-        v-model:value="filter.keyWord"
+        v-model:value.trim="filter.keyWord"
         class="filter-radius"
         iconName="search"
         placeholder="Filter by title, companies, expertise…"
       />
       <div class="filter__divider"></div>
       <InputEl
-        v-model:value="filter.location"
+        v-model:value.trim="filter.location"
         class="filter-radius"
         iconName="location"
         placeholder="Filter by location…"
