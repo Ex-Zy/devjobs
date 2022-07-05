@@ -50,6 +50,7 @@ const isEmptyFilterModel = ({ keyWord, location, isFulltime }) => {
 
 export default class JobsService {
   static async filter(model = new FilterModel()) {
+    // prevent filtering without data
     if (isEmptyFilterModel(model)) return;
 
     const jobs = await JobsApi.getAll();

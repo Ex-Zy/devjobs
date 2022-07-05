@@ -8,7 +8,7 @@ const alias = {
   "@base": resolveUrl("../src/components/base"),
   "@components": resolveUrl("../src/components"),
   "@styles": resolveUrl("../src/styles"),
-  "@pages": resolveUrl("../src/pages"),
+  "@pages": resolveUrl("../src/components/pages"),
   "@assets": resolveUrl("../src/assets"),
   "@models": resolveUrl("../src/models"),
   "@services": resolveUrl("../src/services"),
