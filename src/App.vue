@@ -35,4 +35,9 @@ body {
   background-color: var(--page-bg);
   color: var(--text-color);
 }
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
 </style>
