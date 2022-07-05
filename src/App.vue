@@ -3,7 +3,7 @@ import { onMounted } from "vue";
 import HeaderApp from "./components/HeaderApp.vue";
 
 onMounted(() => {
-  document.documentElement.setAttribute("data-theme", "dark");
+  document.documentElement.setAttribute("data-theme", "light");
 });
 </script>
 
@@ -24,7 +24,10 @@ onMounted(() => {
 }
 
 html,
-body {
+body,
+#app,
+.jobs,
+.jobs__in {
   height: 100%;
 }
 

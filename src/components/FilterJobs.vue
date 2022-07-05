@@ -1,14 +1,8 @@
 <script setup>
 import { reactive } from "vue";
 import FilterModel from "../models/filter.model";
-import JobsService from "../services/jobs.service";
 
 const filter = reactive(new FilterModel());
-const getJobs = async () => {
-  const jobs = await JobsService.filter(filter);
-
-  console.log('Job => ', jobs, filter);
-};
 </script>
 
 <template>
@@ -33,7 +27,7 @@ const getJobs = async () => {
           v-model:checked="filter.isFulltime"
           title="Full Time Only"
         />
-        <ButtonEl title="Search" @click="getJobs" />
+        <ButtonEl title="Search" />
       </div>
     </div>
   </div>
@@ -46,10 +40,12 @@ const getJobs = async () => {
 .filter {
   --divider: var(--text-color);
   --filter-top-margin: calc(var(--filter-height) / 2 * -1);
+  --filter-bottom-margin: calc(var(--filter-height) / 4 + var(--filter-height));
   --filter-bg: var(--card-bg);
 
   @mixin container;
   margin-top: var(--filter-top-margin);
+  margin-bottom: var(--filter-bottom-margin);
 
   &__row {
     display: grid;

@@ -1,9 +1,9 @@
-import Home from "@pages/Home.vue";
-import Jobs from "@pages/Jobs.vue";
+import HomePage from "@pages/HomePage.vue";
+import JobPage from "@pages/JobPage.vue";
 
 const routes = [
-  { path: "/", component: Home },
-  { path: "/jobs", component: Jobs },
+  { path: "/", component: HomePage },
+  { path: "/jobs/:id", component: JobPage },
 ];
 
 export { routes };
