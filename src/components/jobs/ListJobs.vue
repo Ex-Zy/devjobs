@@ -18,6 +18,7 @@ defineProps({
 @import url("@styles/media.pcss");
 
 .jobs {
+  padding-bottom: 100px;
   &__in {
     @mixin container;
     display: grid;

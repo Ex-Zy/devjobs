@@ -20,8 +20,7 @@ const { visibleJobs, isVisibleLoadButton, loadMoreJobs } =
 
 <style lang="postcss">
 .load-more {
-  margin: auto auto 100px;
-}
-.load-button {
+  margin: auto auto 0;
+  padding-bottom: 100px;
 }
 </style>

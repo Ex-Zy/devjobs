@@ -23,14 +23,6 @@ onMounted(() => {
   --radius: 6px;
 }
 
-html,
-body,
-#app,
-.jobs,
-.jobs__in {
-  height: 100%;
-}
-
 body {
   background-color: var(--page-bg);
   color: var(--text-color);
@@ -39,5 +31,6 @@ body {
 #app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 </style>
