@@ -17,6 +17,7 @@ const alias = {
   "@services": resolveUrl("../src/services"),
   "@api": resolveUrl("../src/api"),
   "@helpers": resolveUrl("../src/helpers"),
+  "@use": resolveUrl("../src/use"),
 };
 
 export { alias };

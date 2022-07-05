@@ -1,6 +1,6 @@
 <script setup>
-import useInput from "../../use/useInput.js";
-import useIcon from "../../use/useIcon.js";
+import useInput from "@use/useInput.js";
+import useIcon from "@use/useIcon.js";
 
 const props = defineProps({
   value: String,
