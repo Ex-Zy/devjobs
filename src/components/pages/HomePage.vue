@@ -2,19 +2,23 @@
 import FilterJobs from "@components/FilterJobs.vue";
 import ListJobs from "@jobs/ListJobs.vue";
 import { useJobs } from "@use/useJobs";
-import { useLoadMoreJobs } from "@use/useLoadMoreJobs";
+import { ref } from "vue";
 
 const { jobs } = useJobs();
-const { visibleJobs, isVisibleLoadButton, loadMoreJobs } =
-  useLoadMoreJobs(jobs);
+const showItems = ref(8);
+
+function loadMore(step = 4) {
+  showItems.value =
+    showItems.value + step < jobs.length ? showItems.value + step : jobs.length;
+}
 </script>
 
 <template>
   <FilterJobs />
-  <LoaderBase v-if="!visibleJobs.length" />
-  <ListJobs v-else :jobs="visibleJobs" />
-  <div v-if="isVisibleLoadButton" class="load-more">
-    <ButtonEl title="Load more" @click="loadMoreJobs" class="load-more__btn" />
+  <LoaderBase v-if="!jobs.length" />
+  <ListJobs v-else :jobs="jobs" :showItems="showItems" />
+  <div v-if="showItems < jobs.length" class="load-more">
+    <ButtonEl title="Load more" @click="loadMore" class="load-more__btn" />
   </div>
 </template>
 
