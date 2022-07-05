@@ -44,7 +44,7 @@ function getImageUrl(name) {
   background: var(--card-bg);
   border-radius: var(--radius);
   padding: var(--padding);
-  transition: background 0.25s;
+  /* transition: background 0.25s; */
 
   &:hover {
     background: var(--button-bg2);

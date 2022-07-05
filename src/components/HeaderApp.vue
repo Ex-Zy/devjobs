@@ -1,12 +1,20 @@
 <script setup>
 import LogoSvg from "../assets/logos/logo.svg";
+import { useDark } from "@vueuse/core";
+
+const isDark = useDark({
+  selector: "html",
+  attribute: "data-theme",
+  valueDark: "dark",
+  valueLight: "light",
+});
 </script>
 
 <template>
   <header class="app-header">
     <div class="app-header__in">
       <LogoSvg />
-      <SwitchEl />
+      <SwitchEl v-model:checked="isDark" />
     </div>
   </header>
 </template>

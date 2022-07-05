@@ -1,22 +1,25 @@
 <script setup>
-import { ref, defineProps } from "vue";
-import IconMoon from "../../assets/icons/icon-moon.svg";
-import IconSun from "../../assets/icons/icon-sun.svg";
+import IconMoon from "@assets/icons/icon-moon.svg";
+import IconSun from "@assets/icons/icon-sun.svg";
 
 defineProps({
   enableIcons: {
     type: Boolean,
     default: true,
   },
+  checked: {
+    type: Boolean,
+  },
 });
 
-const value = ref(true);
+const emit = defineEmits(["update:checked"]);
+const change = (event) => emit("update:checked", event.target.checked);
 </script>
 
 <template>
   <div class="gui-switch">
     <slot name="prefix"><IconSun v-if="enableIcons" /></slot>
-    <input type="checkbox" v-model="value" />
+    <input type="checkbox" v-bind="{ checked }" v-on="{ change }" />
     <slot name="postfix"><IconMoon v-if="enableIcons" /></slot>
   </div>
 </template>
