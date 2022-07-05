@@ -7,6 +7,7 @@ const alias = {
   "@node_modules": resolveUrl("../node_modules"),
   "@base": resolveUrl("../src/components/base"),
   "@components": resolveUrl("../src/components"),
+  "@jobs": resolveUrl("../src/components/jobs"),
   "@styles": resolveUrl("../src/styles"),
   "@pages": resolveUrl("../src/components/pages"),
   "@assets": resolveUrl("../src/assets"),

@@ -1,9 +1,11 @@
 <script setup>
-import FilterAppVue from "@components/FilterJobs.vue";
+import FilterJobs from "@components/FilterJobs.vue";
+import ListJobs from "@jobs/ListJobs.vue";
 </script>
 
 <template>
-  <FilterAppVue />
+  <FilterJobs />
+  <ListJobs />
 </template>
 
 <style lang="postcss"></style>
