@@ -15,7 +15,7 @@ const job = computed(
 </script>
 
 <template>
-  <LoaderBase v-if="job.id === null" style="padding-top: 100px;" />
+  <LoaderBase v-if="job.id === null" style="padding-top: 100px" />
   <template v-else>
     <div class="details-wrp">
       <HeaderDetails
@@ -24,7 +24,7 @@ const job = computed(
         :logo="job.logo"
         :logoBackground="job.logoBackground"
       />
-      <JobDetails />
+      <JobDetails :job="job" />
     </div>
     <FooterDetails :position="job.position" :location="job.location" />
   </template>
@@ -38,5 +38,6 @@ const job = computed(
   @mixin container-details;
   margin-top: -40px;
   flex-grow: 1;
+  padding-bottom: 100px;
 }
 </style>

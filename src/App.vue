@@ -21,6 +21,7 @@ onMounted(() => {
 :root {
   --filter-height: 80px;
   --radius: 6px;
+  --divider-size: 4px;
 }
 
 body {
@@ -32,5 +33,18 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.location {
+  margin-top: auto;
+  font-size: 14rem;
+  font-weight: 700;
+  color: var(--location-color);
+}
+.divider {
+  border-radius: 50%;
+  width: var(--divider-size);
+  height: var(--divider-size);
+  background: var(--text-color);
 }
 </style>

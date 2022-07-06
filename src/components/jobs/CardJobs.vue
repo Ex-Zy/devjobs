@@ -17,12 +17,12 @@ defineProps({
     </div>
     <div class="card__top">
       <div class="card__posted">{{ job.postedAt }}</div>
-      <div class="card__divider"></div>
+      <div class="card__divider divider"></div>
       <div class="card__contract">{{ job.contract }}</div>
     </div>
     <div class="card__position title-h3">{{ job.position }}</div>
     <div class="card__company">{{ job.company }}</div>
-    <div class="card__location">{{ job.location }}</div>
+    <div class="card__location location">{{ job.location }}</div>
   </router-link>
 </template>
 
@@ -32,8 +32,6 @@ defineProps({
   --padding-content: 16px;
   --logo-size: 50px;
   --logo-left-position: var(--padding);
-  --divider-size: 4px;
-  --location-color: var(--button-bg1);
 
   position: relative;
   display: flex;
@@ -65,18 +63,6 @@ defineProps({
   &__position,
   &__company {
     margin-top: var(--padding-content);
-  }
-  &__location {
-    margin-top: auto;
-    font-size: 14rem;
-    font-weight: 700;
-    color: var(--location-color);
-  }
-  &__divider {
-    border-radius: 50%;
-    width: var(--divider-size);
-    height: var(--divider-size);
-    background: var(--text-color);
   }
 }
 </style>

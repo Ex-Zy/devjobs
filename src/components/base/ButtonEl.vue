@@ -32,7 +32,7 @@ const click = () => emit("click");
   border-radius: var(--radius);
   font: 700 16rem/1.2 "Kumbh Sans", sans-serif;
   cursor: pointer;
-  transition: background-color 0.25s;
+  /* transition: background-color 0.25s; */
   &:active {
     top: 1px;
   }

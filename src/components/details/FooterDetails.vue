@@ -12,7 +12,7 @@ const props = defineProps({
         <div class="footer-details__position title-h3">
           {{ props.position }}
         </div>
-        <div class="footer-details__location">
+        <div class="footer-details__location location">
           {{ props.location }}
         </div>
       </div>
@@ -31,19 +31,16 @@ const props = defineProps({
   --location-color: var(--button-bg1);
 
   background: var(--footer-bg);
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  right: 0;
   &__in {
     @mixin container-details;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     height: var(--footer-height);
-  }
-
-  &__location {
-    margin-top: 6px;
-    font-size: 14rem;
-    font-weight: 700;
-    color: var(--location-color);
   }
 }
 </style>
