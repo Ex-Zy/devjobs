@@ -13,7 +13,9 @@ const isDark = useDark({
 <template>
   <header class="app-header">
     <div class="app-header__in">
-      <LogoSvg />
+      <router-link to="/">
+        <LogoSvg />
+      </router-link>
       <SwitchEl v-model:checked="isDark" />
     </div>
   </header>

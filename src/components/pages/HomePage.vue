@@ -1,5 +1,5 @@
 <script setup>
-import FilterJobs from "@components/FilterJobs.vue";
+import FilterJobs from "@jobs/FilterJobs.vue";
 import ListJobs from "@jobs/ListJobs.vue";
 import { useJobs } from "@use/useJobs";
 import { ref } from "vue";

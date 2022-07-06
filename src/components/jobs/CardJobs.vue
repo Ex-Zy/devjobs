@@ -1,12 +1,9 @@
 <script setup>
+import { getImageUrl } from "@helpers";
 import JobModel from "@models/job.model.js";
 defineProps({
   job: { type: Object, default: () => new JobModel() },
 });
-
-function getImageUrl(name) {
-  return new URL(`../../assets/logos/${name}`, import.meta.url).href;
-}
 </script>
 
 <template>

@@ -1,3 +1,49 @@
+<script setup>
+const props = defineProps({
+  position: String,
+  location: String,
+});
+</script>
+
 <template>
-  <div>This is Footer details</div>
+  <footer class="footer-details">
+    <div class="footer-details__in">
+      <div class="footer-details__info">
+        <div class="footer-details__position title-h3">
+          {{ props.position }}
+        </div>
+        <div class="footer-details__location">
+          {{ props.location }}
+        </div>
+      </div>
+      <ButtonEl title="Apply now" />
+    </div>
+  </footer>
 </template>
+
+<style lang="postcss">
+@import url("@styles/mixins.pcss");
+@import url("@styles/media.pcss");
+
+.footer-details {
+  --footer-bg: var(--card-bg);
+  --footer-height: 96px;
+  --location-color: var(--button-bg1);
+
+  background: var(--footer-bg);
+  &__in {
+    @mixin container-details;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    height: var(--footer-height);
+  }
+
+  &__location {
+    margin-top: 6px;
+    font-size: 14rem;
+    font-weight: 700;
+    color: var(--location-color);
+  }
+}
+</style>

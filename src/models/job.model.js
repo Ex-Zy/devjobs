@@ -1,4 +1,4 @@
-export default class Job {
+export default class JobModel {
   id = null;
   company = "";
   logo = "";

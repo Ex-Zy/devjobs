@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from "vue";
-import FilterModel from "../models/filter.model";
+import FilterModel from "@models/filter.model";
 
 const filter = reactive(new FilterModel());
 </script>
