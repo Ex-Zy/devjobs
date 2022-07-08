@@ -1,5 +1,4 @@
 <script setup>
-import LogoSvg from "../assets/logos/logo.svg";
 import { useDark } from "@vueuse/core";
 
 const isDark = useDark({
@@ -14,7 +13,7 @@ const isDark = useDark({
   <header class="app-header">
     <div class="app-header__in">
       <router-link to="/">
-        <LogoSvg />
+        <LogoSvg name="logo" />
       </router-link>
       <SwitchEl v-model:checked="isDark" />
     </div>

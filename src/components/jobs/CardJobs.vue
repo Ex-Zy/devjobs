@@ -1,6 +1,6 @@
 <script setup>
-import { getImageUrl } from "@helpers";
 import JobModel from "@models/job.model.js";
+import { removeExtension } from "@helpers";
 defineProps({
   job: { type: Object, default: () => new JobModel() },
 });
@@ -13,7 +13,7 @@ defineProps({
       class="card__logo"
       :style="{ background: job.logoBackground }"
     >
-      <img :src="getImageUrl(job.logo)" :alt="`Company ${job.company} logo`" />
+      <LogoSvg :name="removeExtension(job.logo)" />
     </div>
     <div class="card__top">
       <div class="card__posted">{{ job.postedAt }}</div>

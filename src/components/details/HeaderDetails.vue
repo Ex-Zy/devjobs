@@ -1,29 +1,23 @@
 <script setup>
-import { getImageUrl } from "@helpers";
+import { getHostName, removeExtension } from "@helpers";
 const props = defineProps({
   company: String,
   logo: String,
   website: String,
   logoBackground: String,
 });
-
-function getUrlHostName(websiteUrl) {
-  if (!websiteUrl.trim().length) return "";
-
-  return new URL(websiteUrl).hostname;
-}
 </script>
 
 <template>
   <div class="header-details">
     <div class="header-details__logo" :style="{ background: logoBackground }">
-      <img :src="getImageUrl(logo)" :alt="`Company ${company} logo`" />
+      <LogoSvg :name="removeExtension(logo)" />
     </div>
     <div class="header-details__description">
       <div class="header-details__info">
         <div class="header-details__company title-h2">{{ props.company }}</div>
         <div class="header-details__website">
-          {{ getUrlHostName(props.website) }}
+          {{ getHostName(props.website) }}
         </div>
       </div>
       <ButtonEl type="secondary" title="Company site" />

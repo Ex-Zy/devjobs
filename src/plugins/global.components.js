@@ -3,6 +3,7 @@ import SwitchEl from "@base/SwitchEl.vue";
 import InputEl from "@base/InputEl.vue";
 import CheckboxEl from "@base/CheckboxEl.vue";
 import LoaderBase from "@base/LoaderBase.vue";
+import LogoSvg from "@base/logo/LogoSvg.vue";
 
 const components = [
   { name: "ButtonEl", component: ButtonEl },
@@ -10,6 +11,7 @@ const components = [
   { name: "InputEl", component: InputEl },
   { name: "CheckboxEl", component: CheckboxEl },
   { name: "LoaderBase", component: LoaderBase },
+  { name: "LogoSvg", component: LogoSvg },
 ];
 
 export default {

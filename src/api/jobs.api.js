@@ -1,6 +1,6 @@
 export default class JobsApi {
   static async getAll() {
-    const response = await fetch("../../data/data.json");
+    const response = await fetch(`${import.meta.env.BASE_URL}data.json`);
     const jobs = await response.json();
 
     return jobs;
