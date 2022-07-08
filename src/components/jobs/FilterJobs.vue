@@ -49,7 +49,7 @@ const filter = reactive(new FilterModel());
 
   &__row {
     display: grid;
-    grid-template-columns: 1.5fr 1px 1fr 1px 1fr;
+    grid-template-columns: 1.5fr 1px 1fr 1px auto;
     background-color: var(--filter-bg);
     border-radius: var(--radius);
   }

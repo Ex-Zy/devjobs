@@ -32,7 +32,7 @@ const click = () => emit("click");
   border-radius: var(--radius);
   font: 700 16rem/1.2 "Kumbh Sans", sans-serif;
   cursor: pointer;
-  /* transition: background-color 0.25s; */
+  text-overflow: ellipsis;
   &:active {
     top: 1px;
   }
@@ -49,12 +49,6 @@ const click = () => emit("click");
   background-color: var(--button-bg2);
   &:hover {
     background-color: var(--button-bg2-hover);
-  }
-}
-
-[data-theme="light"] {
-  & .btn-secondary {
-    color: var(--button-bg1);
   }
 }
 </style>
