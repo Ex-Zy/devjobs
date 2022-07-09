@@ -2,18 +2,13 @@
 import CardJobs from "@jobs/CardJobs.vue";
 defineProps({
   jobs: { type: Array, default: () => [] },
-  showItems: { type: Number, default: 5 },
 });
 </script>
 
 <template>
   <div class="jobs">
     <div class="jobs__in">
-      <CardJobs
-        v-for="(_, index) in showItems"
-        :key="jobs[index].id"
-        :job="jobs[index]"
-      />
+      <CardJobs v-for="job in jobs" :key="job.id" :job="job" />
     </div>
   </div>
 </template>
