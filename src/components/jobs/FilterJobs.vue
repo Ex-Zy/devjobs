@@ -1,8 +1,10 @@
 <script setup>
-import { reactive } from "vue";
-import FilterModel from "@models/filter.model";
+import { reactive, defineEmits } from "vue";
+import FilterModel from "@models/filter.model.js";
 
 const filter = reactive(new FilterModel());
+const emit = defineEmits(["update:filter"]);
+const handleClickOnSearchButton = () => emit("update:filter", filter);
 </script>
 
 <template>
@@ -27,7 +29,7 @@ const filter = reactive(new FilterModel());
           v-model:checked="filter.isFulltime"
           title="Full Time Only"
         />
-        <ButtonEl title="Search" />
+        <ButtonEl title="Search" @click="handleClickOnSearchButton" />
       </div>
     </div>
   </div>
