@@ -6,7 +6,8 @@ defineProps({
 </script>
 
 <template>
-  <div class="jobs">
+  <LoaderBase v-if="!jobs.length" />
+  <div v-else class="jobs">
     <div class="jobs__in">
       <CardJobs v-for="job in jobs" :key="job.id" :job="job" />
     </div>

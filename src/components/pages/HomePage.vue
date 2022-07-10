@@ -15,8 +15,7 @@ function loadMore(step = 4) {
 
 <template>
   <FilterJobs />
-  <LoaderBase v-if="!jobs.length" />
-  <ListJobs v-else :jobs="jobs" :showItems="showItems" />
+  <ListJobs :jobs="jobs" :showItems="showItems" />
   <div v-if="showItems < jobs.length" class="load-more">
     <ButtonEl title="Load more" @click="loadMore" class="load-more__btn" />
   </div>

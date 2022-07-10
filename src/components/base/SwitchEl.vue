@@ -13,14 +13,22 @@ defineProps({
 });
 
 const emit = defineEmits(["update:checked"]);
-const change = (event) => emit("update:checked", event.target.checked);
+const change = (val) => emit("update:checked", val);
 </script>
 
 <template>
   <div class="gui-switch">
-    <slot name="prefix"><IconSun v-if="enableIcons" /></slot>
-    <input type="checkbox" v-bind="{ checked }" v-on="{ change }" />
-    <slot name="postfix"><IconMoon v-if="enableIcons" /></slot>
+    <slot name="prefix">
+      <div @click="change(false)"><IconSun v-if="enableIcons" /></div>
+    </slot>
+    <input
+      type="checkbox"
+      v-bind="{ checked }"
+      @change="change($event.target.checked)"
+    />
+    <slot name="postfix">
+      <div @click="change(true)"><IconMoon v-if="enableIcons" /></div>
+    </slot>
   </div>
 </template>
 

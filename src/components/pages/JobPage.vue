@@ -2,20 +2,17 @@
 import JobDetails from "@details/JobDetails.vue";
 import HeaderDetails from "@details/HeaderDetails.vue";
 import FooterDetails from "@details/FooterDetails.vue";
-import JobModel from "@models/job.model";
 import { useJobs } from "@use/useJobs";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
 const route = useRoute();
 const { jobs } = useJobs();
-const job = computed(
-  () => jobs.find(({ id }) => id === +route.params.id) || new JobModel()
-);
+const job = computed(() => jobs.find(({ id }) => id === +route.params.id));
 </script>
 
 <template>
-  <LoaderBase v-if="job.id === null" style="padding-top: 100px" />
+  <LoaderBase v-if="!job" style="padding-top: 100px" />
   <template v-else>
     <div class="details-wrp">
       <HeaderDetails
