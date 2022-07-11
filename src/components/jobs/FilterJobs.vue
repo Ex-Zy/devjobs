@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, defineEmits } from "vue";
 import FilterModel from "@models/filter.model.js";
+import { MqResponsive } from "vue3-mq";
 
 const filter = reactive(new FilterModel());
 const emit = defineEmits(["update:filter"]);
@@ -25,10 +26,16 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
       />
       <div class="filter__divider"></div>
       <div class="filter__fulltime">
-        <CheckboxEl
-          v-model:checked="filter.isFulltime"
-          title="Full Time Only"
-        />
+        <MqResponsive target="desktop">
+          <CheckboxEl
+            v-model:checked="filter.isFulltime"
+            title="Full Time Only"
+          />
+        </MqResponsive>
+        <MqResponsive :target="['mobile', 'tablet']">
+          <CheckboxEl v-model:checked="filter.isFulltime" title="Full Time" />
+        </MqResponsive>
+
         <ButtonEl title="Search" @click="handleClickOnSearchButton" />
       </div>
     </div>
@@ -54,6 +61,9 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
     grid-template-columns: 1.5fr 1px 1fr 1px auto;
     background-color: var(--filter-bg);
     border-radius: var(--radius);
+    @media (--desktop-screen) {
+      grid-template-columns: 1fr 1px 1fr 1px auto;
+    }
   }
   &__divider {
     background-color: var(--divider);
@@ -65,6 +75,9 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
     grid-template-columns: auto auto;
     gap: 26px;
     padding: 0 15px 0 30px;
+    @media (--tablet-screen) {
+      padding: 0 14px 0 20px;
+    }
   }
   & .filter-radius:nth-of-type(1) {
     border-top-right-radius: 0;

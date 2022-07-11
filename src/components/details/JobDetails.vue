@@ -36,7 +36,7 @@ defineProps({
     </ol>
     <h2 class="job-details__title title-h2">What You Will Do</h2>
     <p class="job-details__text">{{ job.role.content }}</p>
-    <ol class="job-details__list">
+    <ol class="job-details__list" style="margin-bottom: 0">
       <li
         class="job-details__list-item job-details__list-item_numbers"
         v-for="(item, index) in job.role.items"
@@ -58,6 +58,10 @@ defineProps({
 
   padding: var(--padding);
   background: var(--job-detail-bg);
+  @media (--mobile-screen) {
+    padding: 40px 24px;
+    border-radius: var(--radius);
+  }
   &__title {
     margin-bottom: 15px;
   }
@@ -85,6 +89,19 @@ defineProps({
   align-items: center;
   grid-template-columns: 1fr auto;
   margin-bottom: 50px;
+  @media (--mobile-screen) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .btn {
+      width: 100%;
+    }
+  }
+  &__info {
+    @media (--mobile-screen) {
+      margin-bottom: 50px;
+    }
+  }
   &__top {
     display: flex;
     align-items: baseline;

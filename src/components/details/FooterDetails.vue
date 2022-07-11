@@ -35,12 +35,24 @@ const props = defineProps({
   left: 0;
   bottom: 0;
   right: 0;
+  @media (--mobile-screen) {
+    border-radius: var(--radius);
+  }
   &__in {
     @mixin container-details;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     height: var(--footer-height);
+    @media (--mobile-screen) {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  }
+  &__info {
+    @media (--mobile-screen) {
+      display: none;
+    }
   }
 }
 </style>

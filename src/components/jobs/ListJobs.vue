@@ -28,6 +28,13 @@ defineProps({
     grid-auto-rows: 250px;
     row-gap: 65px;
     column-gap: 30px;
+    @media (--tablet-screen) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10px;
+    }
+    @media (--mobile-screen) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

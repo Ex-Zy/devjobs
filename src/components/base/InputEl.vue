@@ -31,6 +31,9 @@ const input = (event) => emit("update:value", event.target.value);
 </template>
 
 <style lang="postcss">
+@import url("@styles/mixins.pcss");
+@import url("@styles/media.pcss");
+
 .gui-input {
   --bg-color: var(--card-bg);
   --placeholder: var(--text-color);
@@ -52,7 +55,12 @@ const input = (event) => emit("update:value", event.target.value);
   border-radius: var(--radius);
   border: var(--border-width) solid transparent;
 
+  @media (--tablet-screen) {
+    padding: 0 14px 0 24px;
+  }
+
   &__field {
+    width: 100%;
     background-color: transparent;
     color: var(--color);
     font: 400 16rem/1.4 "Kumbh Sans", sans-serif;

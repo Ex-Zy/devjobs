@@ -39,11 +39,23 @@ const props = defineProps({
   grid-template-columns: var(--header-height) 1fr;
   height: var(--header-height);
   margin-bottom: 30px;
+  @media (--mobile-screen) {
+    --header-height: 205px;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius);
+  }
   &__logo {
     display: grid;
     place-content: center;
     img {
       transform: scale(2);
+    }
+    @media (--mobile-screen) {
+      width: 50px;
+      height: 50px;
+      margin: -25px auto 0;
+      border-radius: 15px;
     }
   }
   &__description {
@@ -51,6 +63,17 @@ const props = defineProps({
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
+    @media (--mobile-screen) {
+      display: flex;
+      flex-direction: column;
+      padding: 0 24px 32px;
+    }
+  }
+  &__info {
+    @media (--mobile-screen) {
+      text-align: center;
+      margin: 24px 0;
+    }
   }
 }
 </style>

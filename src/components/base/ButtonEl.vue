@@ -18,6 +18,9 @@ const click = () => emit("click");
 </template>
 
 <style lang="postcss">
+@import url("@styles/mixins.pcss");
+@import url("@styles/media.pcss");
+
 .btn {
   --padding: 30px;
   --color: #fff;
@@ -35,6 +38,10 @@ const click = () => emit("click");
   text-overflow: ellipsis;
   &:active {
     top: 1px;
+  }
+
+  @media (--tablet-screen) {
+    --padding: 15px;
   }
 }
 
