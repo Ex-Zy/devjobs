@@ -1,14 +1,16 @@
-export default class JobsApi {
-  static async getAll() {
-    const response = await fetch(`${import.meta.env.BASE_URL}data.json`);
-    const jobs = await response.json();
+import Api from "@api/api.js";
 
-    return jobs;
+class JobsApi extends Api {
+  static async getAll() {
+    const data = await this.fetch("/jobs");
+
+    return data;
   }
   static async getById(id) {
-    const jobs = await JobsApi.getAll();
-    const job = jobs.find((j) => j.id === id);
+    const data = await this.fetch(`/jobs/${id}`);
 
-    return job;
+    return data;
   }
 }
+
+export default JobsApi;

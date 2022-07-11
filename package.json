@@ -6,7 +6,8 @@
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "json:server": "json-server --watch data/db.json --port 3004"
   },
   "dependencies": {
     "@vueuse/core": "^8.7.5",
@@ -21,6 +22,7 @@
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^9.0.0",
     "gh-pages": "^4.0.0",
+    "json-server": "^0.17.0",
     "postcss-custom-media": "^8.0.2",
     "postcss-each": "^1.1.0",
     "postcss-mixins": "^9.0.3",
