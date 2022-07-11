@@ -4,6 +4,7 @@ import InputEl from "@base/InputEl.vue";
 import CheckboxEl from "@base/CheckboxEl.vue";
 import LoaderBase from "@base/LoaderBase.vue";
 import LogoSvg from "@base/logo/LogoSvg.vue";
+import SvgIcon from "@base/SvgIcon.vue";
 
 const components = [
   { name: "ButtonEl", component: ButtonEl },
@@ -12,6 +13,7 @@ const components = [
   { name: "CheckboxEl", component: CheckboxEl },
   { name: "LoaderBase", component: LoaderBase },
   { name: "LogoSvg", component: LogoSvg },
+  { name: "SvgIcon", component: SvgIcon },
 ];
 
 export default {

@@ -1,6 +1,5 @@
 <script setup>
 defineProps({
-  title: { type: String },
   checked: { type: Boolean },
 });
 
@@ -11,7 +10,9 @@ const change = (event) => emit("update:checked", event.target.checked);
 <template>
   <label class="gui-checkbox">
     <input type="checkbox" v-bind="{ checked }" v-on="{ change }" />
-    <span v-if="title">{{ title }}</span>
+    <slot>
+      <span>{{ title }}</span>
+    </slot>
   </label>
 </template>
 

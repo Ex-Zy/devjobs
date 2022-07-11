@@ -1,7 +1,4 @@
 <script setup>
-import IconMoon from "@assets/icons/icon-moon.svg";
-import IconSun from "@assets/icons/icon-sun.svg";
-
 defineProps({
   enableIcons: {
     type: Boolean,
@@ -19,7 +16,9 @@ const change = (val) => emit("update:checked", val);
 <template>
   <div class="gui-switch">
     <slot name="prefix">
-      <div @click="change(false)"><IconSun v-if="enableIcons" /></div>
+      <div v-if="enableIcons" @click="change(false)" class="gui-switch__icon">
+        <SvgIcon name="sun" class="icon-sun" />
+      </div>
     </slot>
     <input
       type="checkbox"
@@ -27,7 +26,9 @@ const change = (val) => emit("update:checked", val);
       @change="change($event.target.checked)"
     />
     <slot name="postfix">
-      <div @click="change(true)"><IconMoon v-if="enableIcons" /></div>
+      <div v-if="enableIcons" @click="change(true)" class="gui-switch__icon">
+        <SvgIcon name="moon" class="icon-moon" />
+      </div>
     </slot>
   </div>
 </template>
@@ -102,6 +103,10 @@ const change = (val) => emit("update:checked", val);
       background: var(--track-color-active);
       --thumb-position: calc((var(--track-size) - 100%));
     }
+  }
+  &__icon {
+    display: grid;
+    align-items: center;
   }
 }
 </style>

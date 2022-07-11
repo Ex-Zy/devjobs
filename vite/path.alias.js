@@ -1,6 +1,4 @@
-import { fileURLToPath, URL } from "url";
-
-const resolveUrl = (path) => fileURLToPath(new URL(path, import.meta.url));
+import { resolveUrl } from "./vite.helpers.js";
 
 const alias = {
   "@": resolveUrl("../src"),

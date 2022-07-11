@@ -13,8 +13,7 @@
     "@vueuse/core": "^8.7.5",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.36",
-    "vue-router": "^4.0.15",
-    "vue3-mq": "^3.1.0"
+    "vue-router": "^4.0.15"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
@@ -31,6 +30,7 @@
     "prettier": "^2.5.1",
     "stylelint-config-recommended": "^8.0.0",
     "vite": "^2.9.9",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vite-svg-loader": "^3.4.0"
   }
 }

@@ -1,26 +1,24 @@
 <script setup>
 import useInput from "@use/useInput.js";
-import useIcon from "@use/useIcon.js";
 
 const props = defineProps({
   value: String,
-  type: { type: String, default: "text" },
+  type: { type: String, default: "search" },
   placeholder: { type: String, default: "Initial placeholder" },
   iconName: { type: String, default: "search" },
 });
 const emit = defineEmits(["update:value"]);
-const { icon } = useIcon(props.iconName);
 const { classes, focus, blur, mouseover, mouseleave } = useInput();
 const input = (event) => emit("update:value", event.target.value);
 </script>
 
 <template>
   <div class="gui-input" :class="classes" v-on="{ mouseover, mouseleave }">
-    <Component
-      v-if="icon"
-      :is="icon"
-      class="gui-input__icon"
+    <SvgIcon
+      :name="props.iconName"
       v-on="{ focus, blur }"
+      class="gui-input__icon"
+      :class="[`icon-${props.iconName}`]"
     />
     <input
       class="gui-input__field"
@@ -71,7 +69,6 @@ const input = (event) => emit("update:value", event.target.value);
       color: var(--placeholder);
     }
   }
-
   &__icon {
     align-self: center;
     cursor: pointer;

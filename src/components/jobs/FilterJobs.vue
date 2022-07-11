@@ -1,7 +1,7 @@
 <script setup>
-import { reactive, defineEmits } from "vue";
+import { reactive } from "vue";
 import FilterModel from "@models/filter.model.js";
-import { MqResponsive } from "vue3-mq";
+import SvgIcon from "../base/SvgIcon.vue";
 
 const filter = reactive(new FilterModel());
 const emit = defineEmits(["update:filter"]);
@@ -13,30 +13,34 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
     <div class="filter__row">
       <InputEl
         v-model:value.trim="filter.position"
-        class="filter-radius"
+        class="filter-position filter-radius"
         iconName="search"
         placeholder="Filter by position"
       />
       <div class="filter__divider"></div>
       <InputEl
         v-model:value.trim="filter.location"
-        class="filter-radius"
+        class="filter-location filter-radius"
         iconName="location"
         placeholder="Filter by location…"
       />
       <div class="filter__divider"></div>
       <div class="filter__fulltime">
-        <MqResponsive target="desktop">
-          <CheckboxEl
-            v-model:checked="filter.isFulltime"
-            title="Full Time Only"
-          />
-        </MqResponsive>
-        <MqResponsive :target="['mobile', 'tablet']">
-          <CheckboxEl v-model:checked="filter.isFulltime" title="Full Time" />
-        </MqResponsive>
-
-        <ButtonEl title="Search" @click="handleClickOnSearchButton" />
+        <CheckboxEl v-model:checked="filter.isFulltime">
+          <span class="filter__fulltime-title">
+            Full Time <span>Only</span>
+          </span>
+        </CheckboxEl>
+        <div class="filter__fulltime-icon-filter">
+          <SvgIcon name="filter" class="icon-filter" />
+        </div>
+        <ButtonEl
+          class="filter__fulltime-search"
+          @click="handleClickOnSearchButton"
+        >
+          <span>Search</span>
+          <SvgIcon name="search" class="icon-search" />
+        </ButtonEl>
       </div>
     </div>
   </div>
@@ -64,9 +68,15 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
     @media (--desktop-screen) {
       grid-template-columns: 1fr 1px 1fr 1px auto;
     }
+    @media (--mobile-screen) {
+      grid-template-columns: 1fr auto auto;
+    }
   }
   &__divider {
     background-color: var(--divider);
+    @media (--mobile-screen) {
+      display: none;
+    }
   }
   &__fulltime {
     display: grid;
@@ -78,6 +88,41 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
     @media (--tablet-screen) {
       padding: 0 14px 0 20px;
     }
+    &-title,
+    &-search {
+      span {
+        @media (--mobile-screen) {
+          display: none;
+        }
+      }
+    }
+    &-search {
+      display: inline-flex;
+      align-items: center;
+      .icon-search {
+        display: none;
+        fill: #fff;
+        @media (--mobile-screen) {
+          display: block;
+        }
+      }
+    }
+    &-icon-filter {
+      display: none;
+      cursor: pointer;
+      line-height: 1;
+      .icon-filter {
+        fill: var(--text-color);
+      }
+      @media (--mobile-screen) {
+        display: block;
+      }
+    }
+    .gui-checkbox {
+      @media (--mobile-screen) {
+        display: none;
+      }
+    }
   }
   & .filter-radius:nth-of-type(1) {
     border-top-right-radius: 0;
@@ -85,6 +130,11 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
   }
   & .filter-radius:nth-of-type(3) {
     border-radius: 0;
+  }
+  & .filter-location {
+    @media (--mobile-screen) {
+      display: none;
+    }
   }
 }
 </style>

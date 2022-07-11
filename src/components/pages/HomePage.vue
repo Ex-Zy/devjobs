@@ -16,7 +16,9 @@ const visibleJobs = computed(() =>
     ? state.jobs
     : state.jobs.slice(0, state.limit)
 );
-const isVisibleLoadMore = computed(() => visibleJobs.value < state.jobs);
+const isVisibleLoadMore = computed(
+  () => visibleJobs.value < state.jobs && !state.error
+);
 
 onMounted(fetchJobs);
 
@@ -55,7 +57,6 @@ function loadMore() {
   padding-bottom: 100px;
 }
 .error-msg {
-  margin-top: 100px;
   text-align: center;
 }
 </style>

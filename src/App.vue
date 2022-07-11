@@ -22,6 +22,7 @@ onMounted(() => {
   --filter-height: 80px;
   --radius: 6px;
   --divider-size: 4px;
+  --icon-color: var(--button-bg1);
 }
 
 body {
@@ -46,5 +47,36 @@ body {
   width: var(--divider-size);
   height: var(--divider-size);
   background: var(--text-color);
+}
+/* icons */
+[class*="icon"] {
+  fill: var(--icon-color);
+}
+.icon-search {
+  width: 24px;
+  height: 24px;
+}
+.icon-location {
+  width: 17px;
+  height: 24px;
+}
+.icon-search {
+  width: 20px;
+  height: 20px;
+}
+.icon-moon {
+  width: 12px;
+  height: 12px;
+  fill: #fff;
+}
+.icon-sun {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+.icon-filter {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
 }
 </style>
