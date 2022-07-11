@@ -20,35 +20,28 @@ const isVisibleLoadMore = computed(() => visibleJobs.value < state.jobs);
 
 onMounted(fetchJobs);
 
-async function fetchJobs() {
-  const { type, data, error } = await JobsApi.getAll();
+async function fetchJobs(params) {
+  const { type, data, error } = params
+    ? await JobsSerives.filter(params)
+    : await JobsApi.getAll();
 
   if (type === "error") {
     return (state.error = error);
   }
 
+  state.error = null;
   state.jobs = data;
 }
 
 function loadMore() {
   state.limit += 4;
 }
-
-async function handleFilterJobs(params) {
-  const { type, data, error } = await JobsSerives.filter(params);
-
-  if (type === "error") {
-    return (state.error = error);
-  }
-
-  state.jobs = data;
-}
 </script>
-
+в
 <template>
-  <FilterJobs @update:filter="handleFilterJobs" />
+  <FilterJobs @update:filter="fetchJobs" />
   <div v-if="state.error" class="error-msg title-h1">
-    Api error: {{ state.error }}
+    {{ state.error }}
   </div>
   <ListJobs v-else :jobs="visibleJobs" />
   <div v-if="isVisibleLoadMore" class="load-more">

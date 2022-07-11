@@ -28,8 +28,8 @@ async function fetchJob() {
 </script>
 
 <template>
-  <div v-if="state.error" class="error-msg title-h1">
-    Api error: {{ state.error }}
+  <div v-if="state.error" class="error-msg title-h1" style="margin-top: 100px">
+    {{ state.error }}
   </div>
   <LoaderBase v-else-if="!state.job" style="padding-top: 100px" />
   <template v-else>

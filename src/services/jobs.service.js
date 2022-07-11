@@ -5,6 +5,15 @@ class JobsService {
     const serializeParams = getSerializeParams(params);
     const data = await JobsApi.filter(serializeParams);
 
+    // process unfound result
+    if (data.type === "success" && !data.data.length) {
+      Object.assign(data, {
+        type: "error",
+        data: null,
+        error: "Jobs not found",
+      });
+    }
+
     return data;
   }
 }
