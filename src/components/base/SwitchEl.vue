@@ -36,12 +36,12 @@ const change = (val) => emit("update:checked", val);
 @custom-media --motionOK (prefers-reduced-motion: no-preference);
 
 .gui-switch {
-  --thumb-size: 16rem;
+  --thumb-size: 14rem;
   --thumb: #5964e0;
   --thumb-highlight: rgba(0, 97, 86, 0.25);
 
-  --track-size: calc(var(--thumb-size) * 2.8);
-  --track-padding: 2px;
+  --track-size: calc(var(--thumb-size) * 2.7);
+  --track-padding: 5px;
   --track-inactive: hsl(0, 0%, 100%);
   --track-active: hsl(0, 0%, 100%);
 

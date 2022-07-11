@@ -25,8 +25,8 @@ const isDark = useDark({
 .app-header {
   height: 160px;
   padding: 44px 0;
-  background: url("../assets/backgrounds/desktop/bg-pattern-header.svg")
-    no-repeat top center;
+  background: url("../assets/backgrounds/bg-pattern-header.svg") no-repeat top
+    center;
   background-size: 100% 100%;
   &__in {
     @mixin container;
