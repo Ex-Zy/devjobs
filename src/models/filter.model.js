@@ -1,5 +1,5 @@
 export default class FilterModel {
-  keyWord = "";
+  position = "";
   location = "";
   isFulltime = false;
 }

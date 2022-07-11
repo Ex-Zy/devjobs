@@ -1,6 +1,6 @@
-import Api from "@api/api.js";
+import BaseApi from "@api/base.api.js";
 
-class JobsApi extends Api {
+class JobsApi extends BaseApi {
   static async getAll() {
     const data = await this.fetch("/jobs");
 
@@ -8,6 +8,11 @@ class JobsApi extends Api {
   }
   static async getById(id) {
     const data = await this.fetch(`/jobs/${id}`);
+
+    return data;
+  }
+  static async filter(query) {
+    const data = await this.fetch(`/jobs?${query}`);
 
     return data;
   }

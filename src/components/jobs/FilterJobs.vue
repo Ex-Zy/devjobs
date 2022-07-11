@@ -11,10 +11,10 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
   <div class="filter">
     <div class="filter__row">
       <InputEl
-        v-model:value.trim="filter.keyWord"
+        v-model:value.trim="filter.position"
         class="filter-radius"
         iconName="search"
-        placeholder="Filter by title, companies, expertise…"
+        placeholder="Filter by position"
       />
       <div class="filter__divider"></div>
       <InputEl

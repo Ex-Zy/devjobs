@@ -2,6 +2,7 @@
 import FilterJobs from "@jobs/FilterJobs.vue";
 import ListJobs from "@jobs/ListJobs.vue";
 import JobsApi from "@api/jobs.api.js";
+import JobsSerives from "@services/jobs.service.js";
 import { computed, onMounted, reactive } from "vue";
 
 const state = reactive({
@@ -32,10 +33,20 @@ async function fetchJobs() {
 function loadMore() {
   state.limit += 4;
 }
+
+async function handleFilterJobs(params) {
+  const { type, data, error } = await JobsSerives.filter(params);
+
+  if (type === "error") {
+    return (state.error = error);
+  }
+
+  state.jobs = data;
+}
 </script>
 
 <template>
-  <FilterJobs />
+  <FilterJobs @update:filter="handleFilterJobs" />
   <div v-if="state.error" class="error-msg title-h1">
     Api error: {{ state.error }}
   </div>

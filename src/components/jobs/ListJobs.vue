@@ -23,7 +23,7 @@ defineProps({
   &__in {
     @mixin container;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-template-rows: repeat(auto-fill, 250px);
     grid-auto-rows: 250px;
     row-gap: 65px;

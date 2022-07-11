@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:3004";
 
-export default class Api {
+class BaseApi {
   static async fetch(endpoint) {
     try {
       const response = await fetch(`${BASE_URL}${endpoint}`);
@@ -25,3 +25,5 @@ export default class Api {
     }
   }
 }
+
+export default BaseApi;
