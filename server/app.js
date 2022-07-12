@@ -2,47 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const fs = require("fs");
+const routes = require("./routes");
 
 app.use(cors());
 app.use(bodyParser.json());
-
-app.get("/jobs", (req, res) => {
-  fs.readFile("./data/db.json", (err, data) => {
-    if (err) {
-      return res.status(500).send({ message: "Error read file" });
-    }
-
-    try {
-      const jsonData = JSON.parse(data);
-
-      return res.status(200).send(jsonData.jobs);
-    } catch (e) {
-      console.log("Error parsing JSON string:", e);
-    }
-  });
-});
-
-app.get("/jobs/:id", (req, res) => {
-  fs.readFile("./data/db.json", (err, data) => {
-    if (err) {
-      return res.status(500).send({ message: "Error read file" });
-    }
-
-    try {
-      const jsonData = JSON.parse(data);
-      const job = jsonData.jobs.find((j) => j.id === +req.params.id);
-
-      if(!job) {
-        return res.status(404).send({ message: "Not found" });
-      }
-
-      return res.status(200).send(job);
-    } catch (e) {
-      console.log("Error parsing JSON string:", e);
-    }
-  });
-});
+app.use(routes);
 
 const PORT = 3004;
 
