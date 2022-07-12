@@ -3,7 +3,7 @@ const BASE_URL = "http://localhost:3004";
 class BaseApi {
   static async fetch(endpoint) {
     try {
-      const response = await fetch(`${BASE_URL}${endpoint}`);
+      const response = await fetch(`${BASE_URL}/api${endpoint}`);
 
       if (!response.ok) {
         throw Error(response.statusText);
