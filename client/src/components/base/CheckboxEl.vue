@@ -10,9 +10,7 @@ const change = (event) => emit("update:checked", event.target.checked);
 <template>
   <label class="gui-checkbox">
     <input type="checkbox" v-bind="{ checked }" v-on="{ change }" />
-    <slot>
-      <span>{{ title }}</span>
-    </slot>
+    <slot />
   </label>
 </template>
 
@@ -44,7 +42,6 @@ const change = (event) => emit("update:checked", event.target.checked);
 
     display: grid;
     place-content: center;
-    transition: background-color 0.25s;
 
     &:checked {
       background-color: var(--background-active);

@@ -1,11 +1,20 @@
 <script setup>
 import { reactive } from "vue";
-import FilterModel from "@models/filter.model.js";
 import SvgIcon from "@base/SvgIcon.vue";
+import ModalFilterJobs from "@jobs/ModalFilterJobs.vue";
 
-const filter = reactive(new FilterModel());
 const emit = defineEmits(["update:filter"]);
-const handleClickOnSearchButton = () => emit("update:filter", filter);
+
+const filter = reactive({
+  position: "",
+  location: "",
+  isFulltime: false,
+});
+const handleFilter = (filterData) => {
+  const eventData = filterData ? Object.assign(filter, filterData) : filter;
+
+  emit("update:filter", eventData);
+};
 </script>
 
 <template>
@@ -31,13 +40,8 @@ const handleClickOnSearchButton = () => emit("update:filter", filter);
             Full Time <span>Only</span>
           </span>
         </CheckboxEl>
-        <div class="filter__fulltime-icon-filter">
-          <SvgIcon name="filter" class="icon-filter" />
-        </div>
-        <ButtonEl
-          class="filter__fulltime-search"
-          @click="handleClickOnSearchButton"
-        >
+        <ModalFilterJobs @update:filter="handleFilter" />
+        <ButtonEl class="filter__fulltime-search" @click="handleFilter">
           <span>Search</span>
           <SvgIcon name="search" class="icon-search" />
         </ButtonEl>

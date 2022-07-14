@@ -1,10 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
 import HeaderApp from "./components/HeaderApp.vue";
-
-onMounted(() => {
-  document.documentElement.setAttribute("data-theme", "light");
-});
 </script>
 
 <template>
@@ -28,6 +23,13 @@ onMounted(() => {
 body {
   background-color: var(--page-bg);
   color: var(--text-color);
+  &.is-lock-scroll {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 #app {
