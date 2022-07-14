@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import FilterModel from "@models/filter.model.js";
-import SvgIcon from "../base/SvgIcon.vue";
+import SvgIcon from "@base/SvgIcon.vue";
 
 const filter = reactive(new FilterModel());
 const emit = defineEmits(["update:filter"]);
