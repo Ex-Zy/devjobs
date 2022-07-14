@@ -1,28 +1,5 @@
 const JobsService = require("../services/jobs.service.js");
-const { isIncludes } = require("../helpers");
-
-const getFilteredJobsByQuery = (jobs, query) => {
-  const { position = "", location = "", contract = "" } = query;
-
-  return jobs
-    .filter((j) => {
-      if (
-        isIncludes(j.position, position) &&
-        isIncludes(j.location, location) &&
-        isIncludes(j.contract, contract)
-      ) {
-        return j;
-      } else if (
-        isIncludes(j.position, position) ||
-        isIncludes(j.location, location) ||
-        isIncludes(j.contract, contract)
-      ) {
-        return j;
-      }
-      return null;
-    })
-    .filter((j) => j);
-};
+const FilterService = require("../services/filter.service.js");
 
 class JobsController {
   static async getAllJobs(req, res) {
@@ -31,7 +8,10 @@ class JobsController {
       const jsonData = JSON.parse(data);
 
       if (Object.keys(req.query).length) {
-        const filteredJobs = getFilteredJobsByQuery(jsonData.jobs, req.query);
+        const filteredJobs = FilterService.filterJobsByQuery(
+          jsonData.jobs,
+          req.query
+        );
 
         return res.status(200).send(filteredJobs);
       }
