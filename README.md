@@ -1,8 +1,12 @@
 # devjobs 
-Fullstack web app(Node.js + Vue3 + Vite)
+Fullstack web app(Express.js + Vue3 + Vite)
 
-## Project Setup
+## Quick Start
 
-```sh
-npm install dev
+```bash
+# Install dependencies for root folder and then for client
+npm install
+
+# Start Dev server: http://localhost:3000
+npm run dev
 ```

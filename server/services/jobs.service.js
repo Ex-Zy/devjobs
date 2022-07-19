@@ -1,9 +1,15 @@
+const { resolve } = require("path");
+
 const fs = require("fs").promises;
+const path = require('path');
 
 class JobsService {
   static async getAllJobs() {
     try {
-      const data = await fs.readFile("./database/db.json", "binary");
+      const data = await fs.readFile(
+        path.resolve(__dirname, "..", "database", "db.json"),
+        "binary"
+      );
 
       return Buffer.from(data);
     } catch (err) {
