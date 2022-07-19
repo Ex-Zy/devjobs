@@ -8,7 +8,8 @@
     "server:start": "nodemon app.js",
     "client:start": "npm run dev --prefix 'client/'",
     "dev": "concurrently 'npm run client:start' 'npm run server:start'",
-    "prebuild": "engine-version"
+    "prebuild": "engine-version",
+    "web": "heroku local web"
   },
   "keywords": [],
   "author": "",

@@ -10,12 +10,14 @@ app.use("/api", routes);
 
 // Handle production
 if (process.env.NODE_ENV === "production") {
+  const PUBLIC = "/server/public/";
+
   // Static folder
-  app.use(express.static(__dirname + "/server/public/"));
+  app.use(express.static(__dirname + PUBLIC));
 
   // Handle SPA
   app.get(/.*/, (req, res) =>
-    res.sendFile(__dirname + "/server/public/index.html")
+    res.sendFile(__dirname + PUBLIC + "index.html")
   );
 }
 

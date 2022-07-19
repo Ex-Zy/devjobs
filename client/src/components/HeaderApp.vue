@@ -25,9 +25,9 @@ const isDark = useDark({
 .app-header {
   height: 160px;
   padding: 44px 0;
-  background: url("../assets/backgrounds/bg-pattern-header.svg") no-repeat top
-    center;
-  background-size: 100% 100%;
+  background: url("../assets/backgrounds/bg-pattern-header.svg") no-repeat
+    bottom left;
+  background-size: cover;
   &__in {
     @mixin container;
     @mixin flex-justify-center;
