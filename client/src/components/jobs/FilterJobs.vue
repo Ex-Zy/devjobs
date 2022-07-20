@@ -43,7 +43,7 @@ const handleFilter = (filterData) => {
         <ModalFilterJobs @update:filter="handleFilter" />
         <ButtonEl class="filter__fulltime-search" @click="handleFilter">
           <span>Search</span>
-          <SvgIcon name="search" class="icon-search" />
+          <SvgIcon name="search" class="icon-search-sm" />
         </ButtonEl>
       </div>
     </div>
@@ -55,10 +55,14 @@ const handleFilter = (filterData) => {
 @import url("@styles/media.pcss");
 
 .filter {
-  --divider: var(--text-color);
+  --divider: #e2e6ea;
   --filter-top-margin: calc(var(--filter-height) / 2 * -1);
   --filter-bottom-margin: calc(var(--filter-height) / 4 + var(--filter-height));
   --filter-bg: var(--card-bg);
+
+  [class="dark"] & {
+    --divider: #2a3342;
+  }
 
   @mixin container;
   margin-top: var(--filter-top-margin);
@@ -103,9 +107,8 @@ const handleFilter = (filterData) => {
     &-search {
       display: inline-flex;
       align-items: center;
-      .icon-search {
+      .icon-search-sm {
         display: none;
-        fill: #fff;
         @media (--mobile-screen) {
           display: block;
         }

@@ -43,6 +43,11 @@ const change = (event) => emit("update:checked", event.target.checked);
     display: grid;
     place-content: center;
 
+    /* background for dark mode */
+    [class="dark"] & {
+      background-color: var(--button-bg2);
+    }
+
     &:checked {
       background-color: var(--background-active);
     }

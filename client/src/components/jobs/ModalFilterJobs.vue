@@ -58,19 +58,23 @@ const handleFilter = () => emit("update:filter", filter);
     opacity: 0.6;
   }
   & .modal-location {
-    margin-bottom: -1px;
     border-radius: 0;
   }
 }
 
 .mblock {
+  --divider: #e2e6ea;
+
   width: 328px;
   position: absolute;
   top: 20%;
   background: var(--card-bg);
   border-radius: var(--radius);
   &__divider {
-    border-top: 1px solid var(--text-color);
+    border-top: 1px solid var(--divider);
+    [class="dark"] & {
+      --divider: #2a3342;
+    }
   }
   &__body {
     padding: 24px;

@@ -54,6 +54,7 @@ const click = () => emit("click");
 
 .btn-secondary {
   background-color: var(--button-bg2);
+  color: var(--button-color2);
   &:hover {
     background-color: var(--button-bg2-hover);
   }
