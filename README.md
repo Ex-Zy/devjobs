@@ -1,4 +1,4 @@
-# Frontend Mentor - DevJobs fullstack web app(Express.js/Vue3/VueRouter/Vite/PostCss)
+# Frontend Mentor - DevJobs fullstack web app
 
 This is a solution to the [Devjobs web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
