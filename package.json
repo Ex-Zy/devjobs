@@ -7,6 +7,7 @@
     "start": "NODE_ENV=production node app.js",
     "server:start": "nodemon app.js",
     "client:start": "npm run dev --prefix 'client/'",
+    "build:client": "npm run build --prefix 'client/'",
     "dev": "concurrently 'npm run client:start' 'npm run server:start'",
     "prebuild": "engine-version",
     "web": "heroku local web"
