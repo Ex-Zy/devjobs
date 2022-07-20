@@ -14,7 +14,7 @@ const change = (val) => emit("update:checked", val);
 </script>
 
 <template>
-  <div class="gui-switch">
+  <label class="gui-switch">
     <slot name="prefix">
       <div v-if="enableIcons" @click="change(false)" class="gui-switch__icon">
         <SvgIcon name="sun" class="icon-sun" />
@@ -30,7 +30,7 @@ const change = (val) => emit("update:checked", val);
         <SvgIcon name="moon" class="icon-moon" />
       </div>
     </slot>
-  </div>
+  </label>
 </template>
 
 <style lang="postcss">

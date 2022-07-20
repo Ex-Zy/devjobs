@@ -11,7 +11,7 @@ const isDark = useDark({
   <header class="app-header">
     <div class="app-header__in">
       <router-link to="/">
-        <LogoSvg name="logo" />
+        <h1 class="app-header__title">Devjobs<LogoSvg name="logo" /></h1>
       </router-link>
       <SwitchEl v-model:checked="isDark" />
     </div>
@@ -31,6 +31,10 @@ const isDark = useDark({
   &__in {
     @mixin container;
     @mixin flex-justify-center;
+  }
+  &__title {
+    font-size: 0;
+    line-height: 0;
   }
 }
 </style>
