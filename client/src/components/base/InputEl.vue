@@ -91,10 +91,11 @@ const enter = () => emit("enter");
   }
 
   &.is-focused {
-    border-color: var(--button-bg1-hover);
+    border-bottom-color: var(--button-bg1-hover);
+    background: var(--button-bg2);
   }
   &.is-hovered {
-    border-color: var(--button-bg2-hover);
+    background: var(--button-bg2);
   }
 }
 </style>
