@@ -1,6 +1,8 @@
 <script setup>
 import JobModel from "@models/job.model.js";
 import { removeExtension } from "@helpers";
+
+// Events
 defineProps({
   job: { type: Object, default: () => new JobModel() },
 });

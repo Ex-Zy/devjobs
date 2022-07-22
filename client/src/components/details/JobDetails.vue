@@ -1,5 +1,7 @@
 <script setup>
 import JobModel from "@models/job.model.js";
+
+// Props
 defineProps({
   job: {
     type: Object,

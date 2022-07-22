@@ -1,4 +1,5 @@
 <script setup>
+// Props
 defineProps({
   enableIcons: {
     type: Boolean,
@@ -9,7 +10,10 @@ defineProps({
   },
 });
 
+// Events
 const emit = defineEmits(["update:checked"]);
+
+// Methods
 const change = (val) => emit("update:checked", val);
 </script>
 

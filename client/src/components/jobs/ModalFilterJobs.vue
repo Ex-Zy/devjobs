@@ -2,14 +2,17 @@
 import useModal from "@use/useModal.js";
 import { reactive } from "vue";
 
-const emit = defineEmits(["update:filter"]);
-
-const { isOpenModal } = useModal();
-
+// Data
 const filter = reactive({
   isFulltime: false,
   location: "",
 });
+const { isOpenModal } = useModal();
+
+// Events
+const emit = defineEmits(["update:filter"]);
+
+// Methods
 const handleFilter = () => emit("update:filter", filter);
 </script>
 

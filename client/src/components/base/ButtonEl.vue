@@ -1,4 +1,5 @@
 <script setup>
+// Props
 defineProps({
   type: {
     type: String,
@@ -7,7 +8,11 @@ defineProps({
   },
   title: { type: String, default: "Default" },
 });
+
+// Events
 const emit = defineEmits(["click"]);
+
+// Methods
 const click = () => emit("click");
 </script>
 

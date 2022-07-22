@@ -1,5 +1,7 @@
 <script setup>
 import { getHostName, removeExtension } from "@helpers";
+
+// Props
 const props = defineProps({
   company: String,
   logo: String,

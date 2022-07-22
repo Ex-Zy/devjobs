@@ -1,14 +1,21 @@
 <script setup>
 import useInput from "@use/useInput.js";
 
+// Props
 const props = defineProps({
   value: String,
   type: { type: String, default: "search" },
   placeholder: { type: String, default: "Initial placeholder" },
   iconName: { type: String, default: "search" },
 });
+
+// Events
 const emit = defineEmits(["update:value"]);
+
+// Composition Methods/Data
 const { classes, focus, blur, mouseover, mouseleave } = useInput();
+
+// Methods
 const input = (event) => emit("update:value", event.target.value);
 </script>
 

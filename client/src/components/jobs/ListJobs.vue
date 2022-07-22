@@ -1,5 +1,7 @@
 <script setup>
 import CardJobs from "@jobs/CardJobs.vue";
+
+// Events
 defineProps({
   jobs: { type: Array, default: () => [] },
 });

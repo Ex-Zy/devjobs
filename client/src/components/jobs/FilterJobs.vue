@@ -3,13 +3,17 @@ import { reactive } from "vue";
 import SvgIcon from "@base/SvgIcon.vue";
 import ModalFilterJobs from "@jobs/ModalFilterJobs.vue";
 
-const emit = defineEmits(["update:filter"]);
-
+// Data
 const filter = reactive({
   position: "",
   location: "",
   isFulltime: false,
 });
+
+// Events
+const emit = defineEmits(["update:filter"]);
+
+// Methods
 const handleFilter = (filterData) => {
   const eventData = filterData ? Object.assign(filter, filterData) : filter;
 

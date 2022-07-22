@@ -1,9 +1,13 @@
 <script setup>
+// Props
 defineProps({
   checked: { type: Boolean },
 });
 
+// Events
 const emit = defineEmits(["update:checked"]);
+
+// Methods
 const change = (event) => emit("update:checked", event.target.checked);
 </script>
 

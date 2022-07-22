@@ -1,6 +1,7 @@
 <script setup>
 import { useDark } from "@vueuse/core";
 
+// Data
 const isDark = useDark({
   valueDark: "dark",
   valueLight: "light",

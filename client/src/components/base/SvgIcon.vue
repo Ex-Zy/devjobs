@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 
+// Props
 const props = defineProps({
   prefix: {
     type: String,
@@ -16,6 +17,7 @@ const props = defineProps({
   },
 });
 
+// Data
 const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 </script>
 

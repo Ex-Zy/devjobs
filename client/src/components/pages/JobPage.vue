@@ -6,16 +6,18 @@ import JobsApi from "@api/jobs.api.js";
 import { useRoute } from "vue-router";
 import { computed, reactive, onMounted } from "vue";
 
+// Data
 const route = useRoute();
 const state = reactive({
   job: null,
   error: null,
 });
-
 const id = computed(() => +route.params.id);
 
+// Hooks
 onMounted(fetchJob);
 
+// Methods
 async function fetchJob() {
   const { type, data, error } = await JobsApi.getById(id.value);
 
