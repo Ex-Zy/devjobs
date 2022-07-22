@@ -2,7 +2,7 @@
 
 This is a solution to the [Devjobs web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Run
+## Start project
 
 ```bash
 # Install client & server dependencies
@@ -11,6 +11,17 @@ npm install && cd client && npm install && cd ..
 # Start Dev server: http://localhost:3000
 npm run dev
 ```
+
+## List of npm scripts
+
+Scripts name          | Description                                                      
+:------------------|:----------------------------------
+`npm run dev`           | runs node.js server and then client dev server(preferable)
+`npm run server:start`  | run node.js server
+`npm run client:start`  | run client dev server
+`npm run check`         | checking node.js and npm versions
+`npm run preview`       | starting node.js server in production mode
+`npm start`             | starting node.js server in production mode
 
 ## Table of contents
 
