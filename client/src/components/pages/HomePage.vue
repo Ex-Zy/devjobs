@@ -5,23 +5,21 @@ import JobsApi from "@api/jobs.api.js";
 import JobsSerives from "@services/jobs.service.js";
 import { computed, onMounted, reactive } from "vue";
 
+// Data
 const state = reactive({
   jobs: [],
   limit: 8,
   error: null,
 });
-
-const visibleJobs = computed(() =>
-  state.jobs.length < state.limit
-    ? state.jobs
-    : state.jobs.slice(0, state.limit)
-);
+const visibleJobs = computed(getVisibleJobs);
 const isVisibleLoadMore = computed(
   () => visibleJobs.value < state.jobs && !state.error
 );
 
+// Hooks
 onMounted(fetchJobs);
 
+// Methods
 async function fetchJobs(params) {
   const { type, data, error } = params
     ? await JobsSerives.filter(params)
@@ -34,12 +32,18 @@ async function fetchJobs(params) {
   state.error = null;
   state.jobs = data;
 }
-
 function loadMore() {
   state.limit += 4;
 }
+function getVisibleJobs() {
+  if (state.jobs.length < state.limit) {
+    return state.jobs;
+  }
+
+  return state.jobs.slice(0, state.limit);
+}
 </script>
-в
+
 <template>
   <FilterJobs @update:filter="fetchJobs" />
   <div v-if="state.error" class="error-msg title-h1">
