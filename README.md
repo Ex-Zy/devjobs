@@ -50,6 +50,11 @@ Users should be able to:
 
 ![](./client/src/assets/screenshots/light.png)
 ![](./client/src/assets/screenshots/dark.png)
+![](./client/src/assets/screenshots/job-light.png)
+![](./client/src/assets/screenshots/job-dark.png)
+![](./client/src/assets/screenshots/mobile-dark.png)
+![](./client/src/assets/screenshots/mobile-light.png)
+![](./client/src/assets/screenshots/mobile-filter.png)
 
 ### Links
 
