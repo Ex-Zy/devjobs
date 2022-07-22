@@ -13,7 +13,11 @@ const { isOpenModal } = useModal();
 const emit = defineEmits(["update:filter"]);
 
 // Methods
-const handleFilter = () => emit("update:filter", filter);
+const handleFilter = (filterData) => {
+  const eventData = filterData ? Object.assign(filter, filterData) : filter;
+
+  emit("update:filter", eventData);
+};
 </script>
 
 <template>
@@ -30,6 +34,8 @@ const handleFilter = () => emit("update:filter", filter);
             class="modal-location"
             iconName="location"
             placeholder="Filter by location…"
+            @enter="handleFilter"
+            @clear="handleFilter({ location: '' })"
           />
         </div>
         <div class="mblock__divider"></div>

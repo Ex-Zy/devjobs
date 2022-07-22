@@ -29,6 +29,8 @@ const handleFilter = (filterData) => {
         class="filter-position filter-radius"
         iconName="search"
         placeholder="Filter by position"
+        @enter="handleFilter"
+        @clear="handleFilter({ position: '' })"
       />
       <div class="filter__divider"></div>
       <InputEl
@@ -36,6 +38,8 @@ const handleFilter = (filterData) => {
         class="filter-location filter-radius"
         iconName="location"
         placeholder="Filter by location…"
+        @enter="handleFilter"
+        @clear="handleFilter({ location: '' })"
       />
       <div class="filter__divider"></div>
       <div class="filter__fulltime">

@@ -10,13 +10,19 @@ const props = defineProps({
 });
 
 // Events
-const emit = defineEmits(["update:value"]);
+const emit = defineEmits(["update:value", "enter", "clear"]);
 
 // Composition Methods/Data
 const { classes, focus, blur, mouseover, mouseleave } = useInput();
 
 // Methods
-const input = (event) => emit("update:value", event.target.value);
+const input = (event) => {
+  if (props.value.length && event.target.value === "") {
+    return emit("clear");
+  }
+  emit("update:value", event.target.value);
+};
+const enter = () => emit("enter");
 </script>
 
 <template>
@@ -31,6 +37,7 @@ const input = (event) => emit("update:value", event.target.value);
       class="gui-input__field"
       v-bind="{ value, type, placeholder }"
       v-on="{ focus, blur, input }"
+      @keyup.enter="enter"
     />
   </div>
 </template>
