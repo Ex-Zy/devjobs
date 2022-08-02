@@ -20,7 +20,7 @@ Scripts name          | Description
 `npm run server:start`  | run node.js server
 `npm run client:start`  | run client dev server
 `npm run check`         | checking node.js and npm versions
-`npm run preview`       | starting node.js server in production mode
+`npm run preview`       | run horoku preview before deploy for production
 `npm start`             | starting node.js server in production mode
 
 ## Table of contents
@@ -48,14 +48,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./client/src/assets/screenshots/light.png)
-![](./client/src/assets/screenshots/dark.png)
-![](./client/src/assets/screenshots/job-light.png)
-![](./client/src/assets/screenshots/job-dark.png)
-![](./client/src/assets/screenshots/mobile-dark.png)
-![](./client/src/assets/screenshots/mobile-light.png)
-![](./client/src/assets/screenshots/mobile-filter-light.png)
-![](./client/src/assets/screenshots/mobile-filter-dark.png)
+![](./screenshots/light.png)
+![](./screenshots/dark.png)
+![](./screenshots/job-light.png)
+![](./screenshots/job-dark.png)
+![](./screenshots/mobile-dark.png)
+![](./screenshots/mobile-light.png)
+![](./screenshots/mobile-filter-light.png)
+![](./screenshots/mobile-filter-dark.png)
 
 ### Links
 
@@ -71,6 +71,6 @@ Users should be able to:
 
 ## Author
 
-- Website - [Sergey](https://nagornykh.me/)
+- Website - [Sergey Nagornykh](https://nagornykh.me/)
 - Github - [Ex-Zy](https://github.com/Ex-Zy)
 - Frontend Mentor - [@Ex-Zy](https://www.frontendmentor.io/profile/Ex-Zy)
