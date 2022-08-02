@@ -50,12 +50,8 @@ Users should be able to:
 
 ![](./screenshots/light.png)
 ![](./screenshots/dark.png)
-![](./screenshots/job-light.png)
-![](./screenshots/job-dark.png)
 ![](./screenshots/mobile-dark.png)
-![](./screenshots/mobile-light.png)
 ![](./screenshots/mobile-filter-light.png)
-![](./screenshots/mobile-filter-dark.png)
 
 ### Links
 
