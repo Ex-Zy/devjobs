@@ -1,47 +1,14 @@
 <script setup>
 import FilterJobs from "@jobs/FilterJobs.vue";
 import ListJobs from "@jobs/ListJobs.vue";
-import JobsApi from "@api/jobs.api.js";
-import JobsSerives from "@services/jobs.service.js";
-import { computed, onMounted, reactive } from "vue";
+import { onMounted } from "vue";
+import useJobs from "@use/useJobs";
 
-// Data
-const state = reactive({
-  jobs: [],
-  limit: 8,
-  error: null,
-});
-const visibleJobs = computed(getVisibleJobs);
-const isVisibleLoadMore = computed(
-  () => visibleJobs.value < state.jobs && !state.error
-);
+const { state, visibleJobs, isVisibleLoadMore, fetchJobs, loadMore } =
+  useJobs();
 
 // Hooks
 onMounted(fetchJobs);
-
-// Methods
-async function fetchJobs(params) {
-  const { type, data, error } = params
-    ? await JobsSerives.filter(params)
-    : await JobsApi.getAll();
-
-  if (type === "error") {
-    return (state.error = error);
-  }
-
-  state.error = null;
-  state.jobs = data;
-}
-function loadMore() {
-  state.limit += 4;
-}
-function getVisibleJobs() {
-  if (state.jobs.length < state.limit) {
-    return state.jobs;
-  }
-
-  return state.jobs.slice(0, state.limit);
-}
 </script>
 
 <template>
