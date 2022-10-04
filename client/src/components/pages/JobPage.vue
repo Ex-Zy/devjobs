@@ -2,31 +2,11 @@
 import JobDetails from "@details/JobDetails.vue";
 import HeaderDetails from "@details/HeaderDetails.vue";
 import FooterDetails from "@details/FooterDetails.vue";
-import JobsApi from "@api/jobs.api.js";
-import { useRoute } from "vue-router";
-import { computed, reactive, onMounted } from "vue";
+import { onMounted } from "vue";
+import useOneJob from "@use/useOneJob";
 
-// Data
-const route = useRoute();
-const state = reactive({
-  job: null,
-  error: null,
-});
-const id = computed(() => +route.params.id);
-
-// Hooks
+const { state, fetchJob } = useOneJob();
 onMounted(fetchJob);
-
-// Methods
-async function fetchJob() {
-  const { type, data, error } = await JobsApi.getById(id.value);
-
-  if (type === "error") {
-    return (state.error = error);
-  }
-
-  state.job = data;
-}
 </script>
 
 <template>
