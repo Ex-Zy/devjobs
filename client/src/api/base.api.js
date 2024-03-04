@@ -1,7 +1,9 @@
 class BaseApi {
   static async fetch(endpoint) {
     try {
-      const response = await fetch(`${location.origin}/api${endpoint}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}${endpoint}`
+      );
 
       if (!response.ok) {
         throw Error(response.statusText);
